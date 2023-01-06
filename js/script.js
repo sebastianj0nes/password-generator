@@ -91,6 +91,16 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
 
+  var numChar = prompt("How many characters would you like your password? Min of 10, max of 64 (including 64)");
+  if (numChar <10 | numChar > 64){
+    alert("Invalid number - please try again");
+    return;
+  }
+
+  var lowerCase = confirm("Would you like lowercase?");
+  var upperCase = confirm("Would you like upper case?");
+  
+
 }
 
 // Function for getting a random element from an array
@@ -116,3 +126,28 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+// Your application must:
+// Generate a password when the button is clicked.
+// Present a series of prompts for password criteria:
+// Length of password:
+// At least 10 characters but no more than 64.
+// Character types:
+// Lowercase
+// Uppercase
+// Numeric
+// Special characters ($@%&*, etc.)
+// Code should validate for each input and at least one character type should be selected.
+// Once all prompts are answered, the password should be generated and displayed in an alert or written to the page.
+
+// Where to start
+// Prompt when click on button - get length of password - min 10/ max 64
+  // Variable to store num of characters required
+// If they want lowercase
+  // True/false 
+// If they want uppercase
+  // True/false
+// If they want numbers
+  // True/false
+// If they want special char
+  // True/false
