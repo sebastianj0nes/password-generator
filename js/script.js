@@ -97,12 +97,17 @@ function getPasswordOptions() {
     return;
   }
 
-  var lowerCase = confirm("Would you like lowercase?");
-  var upperCase = confirm("Would you like upper case?");
+  var lowerCase = confirm("Would you like lowercase? (OK = yes, cancel = no)");
+  var upperCase = confirm("Would you like upper case? (OK = yes, cancel = no)");
+  var includeNum = confirm("Would you like numbers? (OK = yes, cancel = no)");
+  var specialChar = confirm("Would you like special characters? (OK = yes, cancel = no)")
+
+  if (!lowerCase && !upperCase && !includeNum && !specialChar){alert("You have selected no options for the password. Please try again");
+  }
   
 
 }
-
+getPasswordOptions();
 // Function for getting a random element from an array
 function getRandom(arr) {
 
