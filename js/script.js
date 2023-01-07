@@ -1,28 +1,6 @@
 // Array of special characters to be included in password
 var specialCharacters = [
-  '@',
-  '%',
-  '+',
-  '\\',
-  '/',
-  "'",
-  '!',
-  '#',
-  '$',
-  '^',
-  '?',
-  ':',
-  ',',
-  ')',
-  '(',
-  '}',
-  '{',
-  ']',
-  '[',
-  '~',
-  '-',
-  '_',
-  '.'
+  '@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.'
 ];
 
 // Array of numeric characters to be included in password
@@ -30,94 +8,70 @@ var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // Array of lowercase characters to be included in password
 var lowerCasedCharacters = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z'
+  'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
 ];
 
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z'
+  'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
 ];
 
 // Function to prompt user for password options
 function getPasswordOptions() {
 
+  // Prompt to get number of characters for password
   var numChar = prompt("How many characters would you like your password? Min of 10, max of 64 (including 64)");
+  // If invalid num - let user know and return
   if (numChar <10 | numChar > 64){
     alert("Invalid number - please try again");
     return;
   }
 
-  var lowerCase = confirm("Would you like lowercase? (OK = yes, cancel = no)");
-  var upperCase = confirm("Would you like upper case? (OK = yes, cancel = no)");
-  var includeNum = confirm("Would you like numbers? (OK = yes, cancel = no)");
-  var specialChar = confirm("Would you like special characters? (OK = yes, cancel = no)")
-
-  if (!lowerCase && !upperCase && !includeNum && !specialChar){alert("You have selected no options for the password. Please try again");
+  // Object to hold user input
+  characteristics={
+    lowerCase: confirm("Would you like lowercase letters? (OK = yes, cancel = no)"),
+    upperCase: confirm("Would you like uppercase (OK = yes, cancel = no)"),
+    includeNum: confirm("Would you like numbers? (OK = yes, cancel = no)"),
+    specialChar: confirm("Would you like special characters? (OK = yes, cancel = no)")
+  };
+ 
+  // Check if password contains at least one option chosen by user - if none - alert user 
+  if (!characteristics.lowerCase && !characteristics.upperCase && !characteristics.includeNum && !characteristics.specialChar){
+    alert("You have selected no options for the password. Please try again");
+    return;
   }
-  
 
 }
-getPasswordOptions();
+
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  // Create variable to hold random element from chosen array
+  var randomEle = arr[Math.floor(Math.random() * arr.length)];
+  // Return random element
+  return randomEle;
 }
+
+// So far - got user inputs & can generate a random element from arrays of characters
+// Now; 
+// Need to generate password based on user input
+
+
 
 // Function to generate password with user input
 function generatePassword() {
+  
+  getPasswordOptions();
+
+  var trueChars = [];
+  for (let i in characteristics) {
+      trueChars.push(characteristics[i]);
+  }
+  
+
 
 }
 
+generatePassword();
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
@@ -132,27 +86,3 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-// Your application must:
-// Generate a password when the button is clicked.
-// Present a series of prompts for password criteria:
-// Length of password:
-// At least 10 characters but no more than 64.
-// Character types:
-// Lowercase
-// Uppercase
-// Numeric
-// Special characters ($@%&*, etc.)
-// Code should validate for each input and at least one character type should be selected.
-// Once all prompts are answered, the password should be generated and displayed in an alert or written to the page.
-
-// Where to start
-// Prompt when click on button - get length of password - min 10/ max 64
-  // Variable to store num of characters required
-// If they want lowercase
-  // True/false 
-// If they want uppercase
-  // True/false
-// If they want numbers
-  // True/false
-// If they want special char
-  // True/false
