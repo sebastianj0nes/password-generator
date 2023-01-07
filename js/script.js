@@ -64,6 +64,9 @@ function generatePassword() {
   // Do .. while loop to run random numbers whilst the madePassword
   // variable is less than number of characters seleceted by user
   do {
+    if (password.lengtth < characteristics.numChar){
+      return password;
+    }
     if (trueChars[1][1] === true){
       password = password + getRandom(lowerCasedCharacters);
     }
@@ -77,7 +80,8 @@ function generatePassword() {
       password = password + getRandom(specialCharacters);
     }
   } while (password.length < characteristics.numChar);
-
+  console.log(password.length);
+  console.log(characteristics.numChar);
   // Return password generated 
   return password;
 }
