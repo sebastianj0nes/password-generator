@@ -50,17 +50,6 @@ function getRandom(arr) {
   return randomEle;
 }
 
-// So far - got user inputs & can generate a random element from arrays of characters
-
-// Now;
-// Need to generate password based on user input
-  // How?
-// Take a random element each time from the selected inputs
-// Each time based off true inputs 
-
-
-
-
 // Function to generate password with user input
 function generatePassword() {
   
@@ -70,40 +59,35 @@ function generatePassword() {
 
   var trueChars = (Object.entries(characteristics));
   
-  var madePassword = [];
+  var password = "";
 
-// Do .. while loop to run random numbers whilst the madePassword
-//  array is less than number of characters seleceted by user
-
+  // Do .. while loop to run random numbers whilst the madePassword
+  // variable is less than number of characters seleceted by user
   do {
     if (trueChars[1][1] === true){
-      madePassword.push(getRandom(lowerCasedCharacters));
+      password = password + getRandom(lowerCasedCharacters);
     }
     if (trueChars[2][1] === true){
-      madePassword.push(getRandom(upperCasedCharacters));
+      password = password + getRandom(upperCasedCharacters);
     }
     if (trueChars[3][1] === true){
-      madePassword.push(getRandom(numericCharacters));
+      password = password + getRandom(numericCharacters);
     }
     if (trueChars[4][1] === true){
-      madePassword.push(getRandom(specialCharacters));
+      password = password + getRandom(specialCharacters);
     }
-  } while (madePassword.length < characteristics.numChar);
+  } while (password.length < characteristics.numChar);
 
-  
-  console.log(madePassword.toString());
-
-
-
-
+  // Return password generated 
+  return password;
 }
 
-generatePassword();
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+  // Store string of password made in variable "password"
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
