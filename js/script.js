@@ -53,15 +53,16 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   
-  // Run func to get password options
-
+  // Run func to get password options from user
   getPasswordOptions();
 
+  // Initialise variable to hold user input in an array (easier to access)
   var trueChars = (Object.entries(characteristics));
   
+  // Initialise variable to hold password generated
   var password = "";
 
-  // Do .. while loop to run random numbers whilst the madePassword
+  // Do .. while loop to add random elements whilst the madePassword
   // variable is less than number of characters seleceted by user
   do {
     // Additional check to see if password length is less than number of characters required
