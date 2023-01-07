@@ -18,4 +18,5 @@ Load the website, click generate password button.
 No collaborators
 
 ## Link to website
+https://sebastianj0nes.github.io/password-generator/
 
