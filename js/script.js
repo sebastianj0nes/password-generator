@@ -56,9 +56,6 @@ function generatePassword() {
   // Run func to get password options from user
   getPasswordOptions();
 
-  // Initialise variable to hold user input in an array (easier to access)
-  var trueChars = (Object.entries(characteristics));
-  
   // Initialise variable to hold password generated
   var password = "";
 
@@ -66,16 +63,16 @@ function generatePassword() {
   // variable is less than number of characters seleceted by user
   do {
     // Additional check to see if password length is less than number of characters required
-    if (trueChars[1][1] === true && password.length < characteristics.numChar){
+    if (characteristics.lowerCase === true && password.length < characteristics.numChar){
       password = password + getRandom(lowerCasedCharacters);
     }
-    if (trueChars[2][1] === true && password.length < characteristics.numChar){
+    if (characteristics.upperCase === true && password.length < characteristics.numChar){
       password = password + getRandom(upperCasedCharacters);
     }
-    if (trueChars[3][1] === true && password.length < characteristics.numChar){
+    if (characteristics.includeNum === true && password.length < characteristics.numChar){
       password = password + getRandom(numericCharacters);
     }
-    if (trueChars[4][1] === true && password.length < characteristics.numChar){
+    if (characteristics.specialChar === true && password.length < characteristics.numChar){
       password = password + getRandom(specialCharacters);
     }
   } while (password.length < characteristics.numChar);
