@@ -66,19 +66,16 @@ function generatePassword() {
   // variable is less than number of characters seleceted by user
   do {
     // Additional check to see if password length is less than number of characters required
-    if (password.length < characteristics.numChar){
-      return password;
-    }
-    if (trueChars[1][1] === true){
+    if (trueChars[1][1] === true && password.length < characteristics.numChar){
       password = password + getRandom(lowerCasedCharacters);
     }
-    if (trueChars[2][1] === true){
+    if (trueChars[2][1] === true && password.length < characteristics.numChar){
       password = password + getRandom(upperCasedCharacters);
     }
-    if (trueChars[3][1] === true){
+    if (trueChars[3][1] === true && password.length < characteristics.numChar){
       password = password + getRandom(numericCharacters);
     }
-    if (trueChars[4][1] === true){
+    if (trueChars[4][1] === true && password.length < characteristics.numChar){
       password = password + getRandom(specialCharacters);
     }
   } while (password.length < characteristics.numChar);
